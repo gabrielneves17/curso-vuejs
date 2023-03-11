@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <div v-show="comprou" :style="{background: cor}">
+            <p>{{conteudo}}</p>
+            <p>Área Quadrado: {{lado * lado}}</p>
+            <p>Perímetro Quadrado: {{lado * 4}}</p>
+            <p>Curso Liberado: {{comprou ? 'Sim' : 'Não'}}</p>
+            <input v-model="cor" type="color">
+            {{cor}}
+        </div>
+        <a v-bind:href="comprou ? href : ''">{{href}}</a>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                titulo: "Curso de Javascript",
+                conteudo: "Esse é o conteúdo.",
+                lado: 5,
+                comprou: true,
+                href: "https://www.origamid.com",
+                cor: "#333"
+            }
+        }) 
+    </script>
+</body>
+</html>
